@@ -1,8 +1,8 @@
 package com.example.biblioteca.Model;
 
 public abstract class Person {
-    private int id;
-    private String nome;
+    int id;
+    String nome;
 
     //getters
     public int getId() {
@@ -19,5 +19,10 @@ public abstract class Person {
     }
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    Person (int identifier, String name){
+        setId(identifier);
+        setNome(name);
     }
 }
