@@ -4,4 +4,6 @@ public class Operator extends Person{
     public Operator(int id, String name){
         super(id, name);
     }
+    //methods
+
 }
