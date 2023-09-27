@@ -1,5 +1,7 @@
 package com.example.biblioteca.Model;
 
+import java.util.Date;
+
 public class Customer extends Person {
     public Customer(int id, String name){
         super(id, name);
@@ -14,7 +16,7 @@ public class Customer extends Person {
         return true;
     }
 
-    public boolean give_Back(){
+    public boolean give_Back(Date returningDate){
         return true;
     }
 
