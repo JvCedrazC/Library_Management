@@ -32,21 +32,36 @@ public class CustomerDAOListImplements implements CustomerDAO{
 
     @Override
     public List<Customer> findMany() {
-        return null;
+        List<Customer> listcustomer = new ArrayList<Customer>();
+        for (Object o: this.CustomerList){
+            listcustomer.add((Customer) o);
+        }
+        return listcustomer;
     }
 
     @Override
     public void update(Customer obj) {
+        for (int i = 0; i < CustomerList.size(); i++){
+            if (this.CustomerList.get(i).getId() == obj.getId()){
+                this.CustomerList.set(i, obj);
+            }
+        }
 
     }
 
     @Override
     public void deleteById(int id) {
+        for (int i = 0; i < CustomerList.size(); i++){
+            if (this.CustomerList.get(i).getId() == id){
+                this.CustomerList.remove(i);
+            }
+        }
 
     }
 
     @Override
     public void deleteMany() {
-
+        this.CustomerList = new ArrayList<Customer>();
+        this.NextId = 0;
     }
 }
