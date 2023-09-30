@@ -1,5 +1,6 @@
 package com.example.biblioteca.Model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Customer extends Person {
@@ -7,16 +8,11 @@ public class Customer extends Person {
         super(id, name);
     }
 
-    //Methods
-    public boolean Loan(){
-        return true;
-    }
-
     public boolean booking(){
         return true;
     }
 
-    public boolean give_Back(Date returningDate){
+    public boolean give_Back(LocalDate returningDate){
         return true;
     }
 
