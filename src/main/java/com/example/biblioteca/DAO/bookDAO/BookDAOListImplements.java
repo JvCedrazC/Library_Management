@@ -1,7 +1,7 @@
 package com.example.biblioteca.DAO.bookDAO;
 
 import com.example.biblioteca.Model.Book;
-import com.example.biblioteca.Model.LibraryLoan;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public class BookDAOListImplements implements BookDAO{
     private int nextID;
     private ArrayList<Book> bookList;
     public BookDAOListImplements(){
-        this.bookList = new ArrayList<Book>();
+        this.bookList = new ArrayList<>();
         nextID = 0;
     }
 
@@ -34,7 +34,7 @@ public class BookDAOListImplements implements BookDAO{
 
     @Override
     public ArrayList<Book> findBYISBN(int ISBN) {
-        ArrayList<Book> listbook = new ArrayList<Book>();
+        ArrayList<Book> listbook = new ArrayList<>();
         for (Book book : this.bookList){
             if (book.getISBN() == ISBN){
                 listbook.add(book);
@@ -45,7 +45,7 @@ public class BookDAOListImplements implements BookDAO{
 
     @Override
     public List<Book> findMany() {
-        List<Book> listbook = new ArrayList<Book>();
+        List<Book> listbook = new ArrayList<>();
         for (Object o: this.bookList){
             listbook.add((Book) o);
         }
@@ -67,6 +67,7 @@ public class BookDAOListImplements implements BookDAO{
         for (int i = 0; i < bookList.size(); i++){
             if (this.bookList.get(i).getId() == id){
                 this.bookList.remove(i);
+                break;
             }
         }
 
@@ -74,7 +75,7 @@ public class BookDAOListImplements implements BookDAO{
 
     @Override
     public void deleteMany() {
-        this.bookList = new ArrayList<Book>();
+        this.bookList = new ArrayList<>();
         this.nextID = 0;
 
     }
