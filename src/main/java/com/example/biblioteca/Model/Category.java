@@ -7,6 +7,7 @@ public class Category {
 
     public Category(String name, int i){
         setName(name);
+        addBook(i);
     }
 
     public void setName(String name) {
