@@ -6,6 +6,7 @@ import com.example.biblioteca.DAO.customerDAO.CustomerDAO;
 
 public class Operator extends Person{
     BookDAO bookDAO = DAO.getBook();
+
     //constructor
     public Operator(int id, String name){
         super(id, name);
@@ -13,9 +14,8 @@ public class Operator extends Person{
 
     //methods
     public void make_loan(int customerID, int ISBN){
-        Book book = bookDAO.findBYISBN(ISBN);
-        int bookId = book.getId();
-        LibraryLoan newLoan = new LibraryLoan(customerID, bookId);
+        LibraryLoan libraryLoan = new LibraryLoan(customerID);
+
 
     }
     public void newBook(int isbn, String BookName, String publisher, String author, int category_id){
