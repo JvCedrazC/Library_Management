@@ -1,7 +1,6 @@
 package com.example.biblioteca.Model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Customer extends Person {
     public Customer(int id, String name){
