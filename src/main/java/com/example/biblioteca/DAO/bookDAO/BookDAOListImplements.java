@@ -1,6 +1,7 @@
 package com.example.biblioteca.DAO.bookDAO;
 
 import com.example.biblioteca.Model.Book;
+import com.example.biblioteca.Model.LibraryLoan;
 
 import java.util.ArrayList;
 import java.util.List;
