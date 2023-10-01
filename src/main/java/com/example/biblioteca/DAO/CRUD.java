@@ -6,7 +6,7 @@ import java.util.List;
 public interface CRUD <T>{
     public T create(T obj);
     //Read
-    
+
     public T findById(int id);
     public List<T> findMany();
     //update
