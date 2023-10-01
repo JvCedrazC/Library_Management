@@ -64,5 +64,14 @@ public class LibraryLoan {
 
     }
 
+    public Float getTax(){
+        return null;
+    }
+
+
+    public boolean isDelayed(){
+        return false;
+    }
+
 
 }
