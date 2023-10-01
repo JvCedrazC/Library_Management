@@ -3,6 +3,7 @@ package com.example.biblioteca.Model;
 import com.example.biblioteca.DAO.bookDAO.BookDAO;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class LibraryLoan {
     private int libraryLoanId;
@@ -14,8 +15,7 @@ public class LibraryLoan {
     private BookDAO bookDAO;
 
 
-    public LibraryLoan(int customerID, int bookID){
-        setBookID(bookID);
+    public LibraryLoan(int customerID){
         setCustomerID(customerID);
     }
 
@@ -36,13 +36,18 @@ public class LibraryLoan {
     }
 
     public void make_loan(int bookISBN){
-        startDate = LocalDate.now();
-        finishDate = startDate.plusDays(7);
-        Book newBook = bookDAO.findBYISBN(bookISBN);
-        newBook.setLocked(1);
-        bookDAO.update(newBook);
-
-
+        ArrayList<Book> newBook = bookDAO.findBYISBN(bookISBN);
+        for (Book i: newBook){
+            if (i.getLocked() == 0){
+                i.setLocked(1);
+                bookDAO.update(i);
+                setBookID(i.getId());
+                startDate = LocalDate.now();
+                finishDate = startDate.plusDays(7);
+                break;
+            }
+            //Exception
+        }
     }
 
     public void extend_loan(){
