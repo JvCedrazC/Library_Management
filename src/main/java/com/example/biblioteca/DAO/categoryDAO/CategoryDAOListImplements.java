@@ -1,6 +1,7 @@
 package com.example.biblioteca.DAO.categoryDAO;
 
 import com.example.biblioteca.Model.Category;
+import com.example.biblioteca.Model.LibraryLoan;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class CategoryDAOListImplements implements CategoryDAO{
     }
 
     @Override
-    public Category findById(int id) {
+    public LibraryLoan findById(int id) {
         return null;
     }
 
