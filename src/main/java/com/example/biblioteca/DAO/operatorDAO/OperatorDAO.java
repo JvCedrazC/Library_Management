@@ -1,6 +1,7 @@
 package com.example.biblioteca.DAO.operatorDAO;
 
 import com.example.biblioteca.DAO.CRUD;
+import com.example.biblioteca.Model.LibraryLoan;
 import com.example.biblioteca.Model.Operator;
 
 import java.util.List;
