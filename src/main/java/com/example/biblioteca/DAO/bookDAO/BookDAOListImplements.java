@@ -32,13 +32,14 @@ public class BookDAOListImplements implements BookDAO{
     }
 
     @Override
-    public Book findBYISBN(int ISBN) {
+    public ArrayList<Book> findBYISBN(int ISBN) {
+        ArrayList<Book> listbook = new ArrayList<Book>();
         for (Book book : this.bookList){
             if (book.getISBN() == ISBN){
-                return book;
+                listbook.add(book);
             }
         }
-        return null;
+        return listbook;
     }
 
     @Override
