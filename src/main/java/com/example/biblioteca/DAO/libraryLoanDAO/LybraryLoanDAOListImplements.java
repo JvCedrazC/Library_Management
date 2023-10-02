@@ -15,7 +15,10 @@ public class LybraryLoanDAOListImplements implements LibraryLoanDAO{
     }
     @Override
     public LibraryLoan create(LibraryLoan obj) {
-        return null;
+       obj.setLibraryLoanId(nextId);
+       this.libraryLoanList.add(obj);
+       nextId++;
+       return obj;
     }
 
     @Override
