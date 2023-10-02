@@ -25,6 +25,11 @@ public class OperatorDAOListImplements implements OperatorDAO{
 
     @Override
     public Operator findById(int id) {
+        for (Operator operator: this.operatorList){
+            if (operator.getId() == id){
+                return operator;
+            }
+        }
         return null;
     }
     @Override
