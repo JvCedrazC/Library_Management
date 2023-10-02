@@ -11,11 +11,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LibraryLoanDAOTest {
     @AfterEach
     void tearDown(){
-        DAO.getOperatorDAO().deleteMany();
+        DAO.getLibraryLoanDAO().deleteMany();
         DAO.getBook().deleteMany();
     }
     @BeforeEach
@@ -27,15 +28,6 @@ public class LibraryLoanDAOTest {
         LibraryLoan libraryLoan3 = new LibraryLoan(2, 7117);
         DAO.getLibraryLoanDAO().create(libraryLoan3);
 
-    }
-    @BeforeEach
-    void generateBooks(){
-        Book book1 = new Book(978, 0, "1808", "Laurentino Gomes", "Planeta Jovem");
-        DAO.getBook().create(book1);
-        Book book2 = new Book(978, 0, "1808", "Laurentino Gomes", "Planeta Jovem");
-        DAO.getBook().create(book2);
-        Book book3 = new Book(7117, 1, "Como Treinar seu Dragão", "Cressida Cowell", "Intrinseca");
-        DAO.getBook().create(book3);
     }
 
     @Test
@@ -55,5 +47,25 @@ public class LibraryLoanDAOTest {
         ArrayList<LibraryLoan> listLibraryLoan = new ArrayList<>();
         listLibraryLoan = (ArrayList<LibraryLoan>) DAO.getLibraryLoanDAO().findMany();
         assertEquals(3, listLibraryLoan.size());
+    }
+
+    @Test
+    public void update(){
+        LibraryLoan newLibraryLoan = DAO.getLibraryLoanDAO().findById(2);
+        newLibraryLoan.setBookISBN(978);
+        DAO.getLibraryLoanDAO().update(newLibraryLoan);
+        assertEquals(978, DAO.getLibraryLoanDAO().findById(2).getBookISBN());
+    }
+
+    @Test
+    public void deleteById(){
+        DAO.getLibraryLoanDAO().deleteById(2);
+        assertThrows(IndexOutOfBoundsException.class, () ->DAO.getLibraryLoanDAO().findMany().get(2));
+    }
+
+    @Test
+    public void deleteMany(){
+        DAO.getLibraryLoanDAO().deleteMany();
+        assertEquals(0, DAO.getLibraryLoanDAO().findMany().size());
     }
 }
