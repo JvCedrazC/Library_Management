@@ -18,6 +18,9 @@ public class Operator extends Person{
 
 
     }
+    public void makeBooking(){
+
+    }
     public void newBook(int isbn, String BookName, String publisher, String author, int category_id){
         Book book = new Book(isbn, category_id, BookName, author, publisher);
         bookDAO.create(book);
