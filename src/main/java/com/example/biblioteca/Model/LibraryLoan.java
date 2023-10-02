@@ -1,5 +1,6 @@
 package com.example.biblioteca.Model;
 
+import com.example.biblioteca.DAO.DAO;
 import com.example.biblioteca.DAO.bookDAO.BookDAO;
 
 import java.time.LocalDate;
@@ -10,11 +11,11 @@ public class LibraryLoan {
     private int customerID;
     private int bookID;
     private int bookISBN;
-    private LocalDate startDate;
-    private LocalDate finishDate;
+    private  LocalDate startDate;
+    private  LocalDate finishDate;
     private int extendsNumbers = 0;
     private Float tax = 0.0F;
-    private BookDAO bookDAO;
+    private BookDAO bookDAO = DAO.getBook();
 
 
     public LibraryLoan(int customerID, int ISBN){
@@ -38,27 +39,29 @@ public class LibraryLoan {
         return libraryLoanId;
     }
     public int getBookISBN() { return bookISBN;}
-
     public int getBookID() {
         return bookID;
     }
     public LocalDate getFinishDate(){
         return this.finishDate;
     }
+    public void setFinishDate(LocalDate date){ this.finishDate = date; }
+    public LocalDate getStartDate(){ return this.startDate; }
+    public void setStartDate(LocalDate date){ this.startDate = date; }
 
     public void make_loan(){
-
         ArrayList<Book> newBook = bookDAO.findBYISBN(bookISBN);
         for (Book i: newBook){
             if (i.getLocked() == 0){
                 i.setLocked(1);
-                bookDAO.update(i);
+                DAO.getBook().update(i);
                 setBookID(i.getId());
-                startDate = LocalDate.now();
-                finishDate = startDate.plusDays(7);
+                LocalDate sDate = LocalDate.now();
+                LocalDate fDate = sDate.plusDays(7);
+                setFinishDate(fDate);
+                setStartDate(sDate);
                 break;
             }
-            //Exception
         }
     }
 
