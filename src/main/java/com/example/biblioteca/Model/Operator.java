@@ -14,7 +14,7 @@ public class Operator extends Person{
 
     //methods
     public void make_loan(int customerID, int ISBN){
-        LibraryLoan libraryLoan = new LibraryLoan(customerID);
+        LibraryLoan libraryLoan = new LibraryLoan(customerID, ISBN);
 
 
     }
