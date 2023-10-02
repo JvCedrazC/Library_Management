@@ -63,8 +63,10 @@ public class BookDAOTest {
         DAO.getBook().deleteById(2);
         assertThrows(IndexOutOfBoundsException.class, () ->DAO.getBook().findMany().get(2));
     }
+    @Test
     public void deleteMany(){
-
+        DAO.getBook().deleteMany();
+        assertEquals(0,DAO.getBook().findMany().size());
     }
 
 }
