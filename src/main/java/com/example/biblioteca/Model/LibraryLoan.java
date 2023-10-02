@@ -25,26 +25,19 @@ public class LibraryLoan {
     public void setBookID(int bookID) {
         this.bookID = bookID;
     }
-
     public void setBookISBN(int bookISBN) {
         this.bookISBN = bookISBN;
     }
-
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
-
     public void setLibraryLoanId(int libraryLoanId) {
         this.libraryLoanId = libraryLoanId;
     }
-
     public int getLibraryLoanId() {
         return libraryLoanId;
     }
-
-    public int getBookISBN() {
-        return bookISBN;
-    }
+    public int getBookISBN() { return bookISBN;}
 
     public int getBookID() {
         return bookID;
