@@ -13,16 +13,21 @@ public class LibraryLoan {
     private LocalDate startDate;
     private LocalDate finishDate;
     private int extendsNumbers = 0;
+    private Float tax = 0.0F;
     private BookDAO bookDAO;
 
 
-    public LibraryLoan(int customerID){
+    public LibraryLoan(int customerID, int ISBN){
         setCustomerID(customerID);
-
+        setBookISBN(ISBN);
     }
 
     public void setBookID(int bookID) {
         this.bookID = bookID;
+    }
+
+    public void setBookISBN(int bookISBN) {
+        this.bookISBN = bookISBN;
     }
 
     public void setCustomerID(int customerID) {
@@ -35,6 +40,17 @@ public class LibraryLoan {
 
     public int getLibraryLoanId() {
         return libraryLoanId;
+    }
+
+    public int getBookISBN() {
+        return bookISBN;
+    }
+
+    public int getBookID() {
+        return bookID;
+    }
+    public LocalDate getFinishDate(){
+        return this.finishDate;
     }
 
     public void make_loan(int bookISBN){
@@ -57,22 +73,21 @@ public class LibraryLoan {
             this.finishDate = this.finishDate.plusDays(7);
         }
         //Exception
-
         //Counter
         extendsNumbers += 1;
     }
 
-    public void finish_loan(){
-
-    }
-
-    public Float getTax(){
+    public Float getTax(LocalDate devolutionDate){
         return null;
     }
 
 
-    public boolean isDelayed(){
-        return false;
+    public boolean isDelayed(LocalDate devolutionDate){
+        if (devolutionDate.isAfter(getFinishDate())){
+            return true;
+        } else{
+            return false;
+        }
     }
 
 
