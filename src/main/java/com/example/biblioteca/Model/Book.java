@@ -9,7 +9,7 @@ public class Book {
     private String name;
     private String author;
     private String publisher;
-    private int locked = 0;
+    private int locked = 0; //0 -> Free|1 -> Blocked
 
     public Book(int isbn, int category_id, String name, String author, String publisher){
         setISBN(isbn);
