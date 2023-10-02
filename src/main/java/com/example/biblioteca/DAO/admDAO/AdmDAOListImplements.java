@@ -1,6 +1,7 @@
 package com.example.biblioteca.DAO.admDAO;
 
 import com.example.biblioteca.Model.Adm;
+import com.example.biblioteca.Model.Operator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +24,21 @@ public class AdmDAOListImplements implements AdmDAO{
 
     @Override
     public Adm findById(int id) {
+        for (Adm adm: this.AdmList){
+            if (adm.getId() == id){
+                return adm;
+            }
+        }
         return null;
     }
 
     @Override
     public List<Adm> findMany() {
-        return null;
+        List<Adm> listAdm = new ArrayList<>();
+        for (Object o: this.AdmList){
+            listAdm.add((Adm) o);
+        }
+        return listAdm;
     }
 
     @Override
