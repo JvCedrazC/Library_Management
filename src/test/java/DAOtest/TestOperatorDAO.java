@@ -58,4 +58,9 @@ public class TestOperatorDAO {
         DAO.getOperatorDAO().deleteById(2);
         assertThrows(IndexOutOfBoundsException.class, () ->DAO.getBook().findMany().get(2));
     }
+    @Test
+    public void deleteMany(){
+        DAO.getOperatorDAO().deleteMany();
+        assertEquals(0, DAO.getOperatorDAO().findMany().size());
+    }
 }
