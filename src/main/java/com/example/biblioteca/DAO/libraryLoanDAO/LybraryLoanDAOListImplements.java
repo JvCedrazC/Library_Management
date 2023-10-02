@@ -6,18 +6,13 @@ import java.util.List;
 
 public class LybraryLoanDAOListImplements implements LibraryLoanDAO{
     @Override
-    public LibraryLoanDAO create(LibraryLoanDAO obj) {
+    public LibraryLoan create(LibraryLoan obj) {
         return null;
     }
 
     @Override
-    public void update(LibraryLoanDAO obj) {
+    public void update(LibraryLoan libraryloan) {
 
-    }
-
-    @Override
-    public LibraryLoan create(LibraryLoan libraryLoan) {
-        return null;
     }
 
     @Override
@@ -28,11 +23,6 @@ public class LybraryLoanDAOListImplements implements LibraryLoanDAO{
     @Override
     public List<LibraryLoan> findMany() {
         return null;
-    }
-
-    @Override
-    public void update(LibraryLoan obj) {
-
     }
 
     @Override
