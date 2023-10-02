@@ -49,21 +49,6 @@ public class LibraryLoan {
     public LocalDate getStartDate(){ return this.startDate; }
     public void setStartDate(LocalDate date){ this.startDate = date; }
 
-    public void make_loan(){
-        ArrayList<Book> newBook = bookDAO.findBYISBN(bookISBN);
-        for (Book i: newBook){
-            if (i.getLocked() == 0){
-                i.setLocked(1);
-                DAO.getBook().update(i);
-                setBookID(i.getId());
-                LocalDate sDate = LocalDate.now();
-                LocalDate fDate = sDate.plusDays(7);
-                setFinishDate(fDate);
-                setStartDate(sDate);
-                break;
-            }
-        }
-    }
 
     public void extend_loan(){
         if (extendsNumbers <= 3){
