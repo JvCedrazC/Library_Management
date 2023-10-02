@@ -46,7 +46,8 @@ public class LibraryLoan {
         return this.finishDate;
     }
 
-    public void make_loan(int bookISBN){
+    public void make_loan(){
+
         ArrayList<Book> newBook = bookDAO.findBYISBN(bookISBN);
         for (Book i: newBook){
             if (i.getLocked() == 0){
