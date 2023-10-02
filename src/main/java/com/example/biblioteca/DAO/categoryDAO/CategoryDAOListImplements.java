@@ -14,7 +14,7 @@ public class CategoryDAOListImplements implements CategoryDAO{
     }
 
     @Override
-    public LibraryLoan findById(int id) {
+    public Category findById(int id) {
         return null;
     }
 
