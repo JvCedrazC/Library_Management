@@ -8,7 +8,6 @@ import java.util.List;
 public interface AdmDAO extends CRUD<Adm> {
     public Adm create(Adm obj);
     //Read
-
     public Adm findById(int id);
     public List<Adm> findMany();
     //update
