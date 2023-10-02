@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Booking {
+    private int bookingID;
     private int customerID;
     private int ISBN;
     private LocalDate startdate;
