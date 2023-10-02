@@ -9,6 +9,7 @@ public class LibraryLoan {
     private int libraryLoanId;
     private int customerID;
     private int bookID;
+    private int bookISBN;
     private LocalDate startDate;
     private LocalDate finishDate;
     private int extendsNumbers = 0;
@@ -17,6 +18,7 @@ public class LibraryLoan {
 
     public LibraryLoan(int customerID){
         setCustomerID(customerID);
+
     }
 
     public void setBookID(int bookID) {
