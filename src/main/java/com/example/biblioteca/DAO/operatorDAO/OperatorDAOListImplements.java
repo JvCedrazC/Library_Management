@@ -34,7 +34,11 @@ public class OperatorDAOListImplements implements OperatorDAO{
     }
     @Override
     public List<Operator> findMany() {
-        return null;
+        List<Operator> listoperator = new ArrayList<>();
+        for (Object o: this.operatorList){
+            listoperator.add((Operator) o);
+        }
+        return listoperator;
     }
 
     @Override
