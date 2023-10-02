@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -48,5 +49,11 @@ public class LibraryLoanDAOTest {
         LibraryLoan libraryLoan1 = DAO.getLibraryLoanDAO().findById(1);
         assertEquals(libraryLoan1.getBookISBN(), 978);
     }
-    
+
+    @Test
+    public void findMany(){
+        ArrayList<LibraryLoan> listLibraryLoan = new ArrayList<>();
+        listLibraryLoan = (ArrayList<LibraryLoan>) DAO.getLibraryLoanDAO().findMany();
+        assertEquals(3, listLibraryLoan.size());
+    }
 }
