@@ -3,7 +3,7 @@ package com.example.biblioteca.Model;
 import java.util.Date;
 
 public class Book {
-    private int id;
+    private int id = -1;
     private int category_id;
     private int ISBN;
     private String name;
