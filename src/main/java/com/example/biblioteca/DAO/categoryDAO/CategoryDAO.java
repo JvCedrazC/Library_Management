@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CategoryDAO extends CRUD<Category> {
     public Category create(Category category);
-    public LibraryLoan findById(int id);
+    public Category findById(int id);
     public List<Category> findMany();
     //update
     public void update(Category obj);
