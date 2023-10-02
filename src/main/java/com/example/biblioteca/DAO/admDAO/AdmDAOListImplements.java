@@ -2,13 +2,23 @@ package com.example.biblioteca.DAO.admDAO;
 
 import com.example.biblioteca.Model.Adm;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdmDAOListImplements implements AdmDAO{
+    private ArrayList<Adm> AdmList;
+    private int nextId;
+    public AdmDAOListImplements(){
+        this.AdmList = new ArrayList<>();
+        this.nextId = 0;
+    }
 
     @Override
     public Adm create(Adm obj) {
-        return null;
+        obj.setId(nextId);
+        this.AdmList.add(obj);
+        nextId++;
+        return obj;
     }
 
     @Override
