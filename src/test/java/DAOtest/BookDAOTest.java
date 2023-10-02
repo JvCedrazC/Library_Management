@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BookDAOTest {
     @AfterEach
@@ -43,11 +44,27 @@ public class BookDAOTest {
     }
 
     @Test
+    public void findMany(){
+        ArrayList<Book> booklist = new ArrayList<>();
+        booklist = (ArrayList<Book>) DAO.getBook().findMany();
+        assertEquals(3, DAO.getBook().findMany().size());
+    }
+
+    @Test
     public void update(){
         Book nBook = DAO.getBook().findById(0);
         nBook.setLocked(1);
         DAO.getBook().update(nBook);
         assertEquals(1, DAO.getBook().findById(0).getLocked());
+    }
+
+    @Test
+    public void deleteById(){
+        DAO.getBook().deleteById(2);
+        assertThrows(IndexOutOfBoundsException.class, () ->DAO.getBook().findMany().get(2));
+    }
+    public void deleteMany(){
+
     }
 
 }
