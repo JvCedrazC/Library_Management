@@ -9,11 +9,18 @@ public class Booking {
     private LocalDate finishdate;
 
     public void setCustomerID(int customerID, int ISBN, String startDate){
-        this.customerID = customerID;
+        setCustomerID(customerID);
+        setISBN(ISBN);
+    }
+    public void setISBN(int ISBN){
         this.ISBN = ISBN;
     }
-    public void startBooking(){
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
 
+    public void startBooking(String date){
+        
 
     }
 
