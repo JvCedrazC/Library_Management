@@ -43,16 +43,26 @@ public class OperatorDAOListImplements implements OperatorDAO{
 
     @Override
     public void update(Operator obj) {
+        for (int i = 0; i < operatorList.size(); i++){
+            if (this.operatorList.get(i).getId() == obj.getId()){
+                this.operatorList.set(i, obj);
+            }
+        }
 
     }
 
     @Override
     public void deleteById(int id) {
-
+        for (int i = 0; i < operatorList.size(); i++){
+            if (this.operatorList.get(i).getId() == id){
+                this.operatorList.remove(i);
+            }
+        }
     }
 
     @Override
     public void deleteMany() {
-
+        this.operatorList = new ArrayList<>();
+        this.nextId = 0;
     }
 }
