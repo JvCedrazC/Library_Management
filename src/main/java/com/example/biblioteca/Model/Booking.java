@@ -8,7 +8,7 @@ public class Booking {
     private LocalDate startdate;
     private LocalDate finishdate;
 
-    public void setCustomerID(int customerID, int ISBN, String startDate){
+    public void Booking(int customerID, int ISBN, String startDate){
         setCustomerID(customerID);
         setISBN(ISBN);
     }
@@ -20,7 +20,7 @@ public class Booking {
     }
 
     public void startBooking(String date){
-        
+            
 
     }
 
