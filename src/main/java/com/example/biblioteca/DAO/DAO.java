@@ -4,6 +4,8 @@ import com.example.biblioteca.DAO.bookDAO.BookDAO;
 import com.example.biblioteca.DAO.bookDAO.BookDAOListImplements;
 import com.example.biblioteca.DAO.customerDAO.CustomerDAO;
 import com.example.biblioteca.DAO.customerDAO.CustomerDAOListImplements;
+import com.example.biblioteca.DAO.libraryLoanDAO.LibraryLoanDAO;
+import com.example.biblioteca.DAO.libraryLoanDAO.LybraryLoanDAOListImplements;
 import com.example.biblioteca.DAO.operatorDAO.OperatorDAO;
 import com.example.biblioteca.DAO.operatorDAO.OperatorDAOListImplements;
 
@@ -11,6 +13,7 @@ public class DAO {
     public static CustomerDAO customerDAO;
     public static BookDAO bookDAO;
     public static OperatorDAO operatorDAO;
+    public static LibraryLoanDAO libraryLoanDAO;
     public static CustomerDAO getCustomer(){
         if (customerDAO == null){
             customerDAO = new CustomerDAOListImplements();
@@ -32,4 +35,10 @@ public class DAO {
         return operatorDAO;
     }
 
+    public static LibraryLoanDAO getLibraryLoanDAO(){
+        if (libraryLoanDAO == null){
+            libraryLoanDAO = new LybraryLoanDAOListImplements();
+        }
+        return libraryLoanDAO;
+    }
 }
