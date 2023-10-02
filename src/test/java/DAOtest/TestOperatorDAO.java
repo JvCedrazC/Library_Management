@@ -53,5 +53,9 @@ public class TestOperatorDAO {
         assertEquals("Mr Jorge", DAO.getOperatorDAO().findById(2).getNome());
     }
 
-    
+    @Test
+    public void deleteById(){
+        DAO.getOperatorDAO().deleteById(2);
+        assertThrows(IndexOutOfBoundsException.class, () ->DAO.getBook().findMany().get(2));
+    }
 }
