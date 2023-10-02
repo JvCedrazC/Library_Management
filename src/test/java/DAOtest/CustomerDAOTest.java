@@ -63,7 +63,6 @@ public class CustomerDAOTest {
     @Test
     void deleteMany(){
         customerDAO.deleteMany();
-        assertEquals(0, customerDAO.findMany().size()
-        );
+        assertEquals(0, customerDAO.findMany().size());
     }
 }
