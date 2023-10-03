@@ -19,7 +19,7 @@ public class Operator extends Person{
     public void make_loan(int bookISBN, int customerID){
 
         LibraryLoan libraryLoan = new LibraryLoan(customerID, bookISBN);
-        ArrayList<Book> newBook = bookDAO.findBYISBN(bookISBN);
+        ArrayList<Book> newBook = DAO.getBook().findBYISBN(bookISBN);
         for (Book i: newBook){
             if (i.getLocked() == 0){
                 i.setLocked(1);
