@@ -4,8 +4,7 @@ ________________________________________________________________________________
 First PHASE: 
 create UML Diagram
   Cases of Use Diagram:https://lucid.app/lucidchart/224f06ed-1b1f-4881-bc8f-efcea2774628/edit?viewport_loc=-3071%2C-2511%2C2436%2C1056%2C0_0&invitationId=inv_ca305c44-03d1-4897-b083-8e98e205fe96
-  Class Diagram:
-
+  Class Diagram:https://lucid.app/lucidchart/33f8b220-d61d-4837-94d0-79c37b64c9bb/edit?view_items=VWqAVzyE9U-9&invitationId=inv_9dee1ccb-57ca-402c-9719-860d5ac80600
 ___________________________________________________________________________________________________________________________________________________________________________________
 Second PHASE:
 Implementing DAO and MODEL
