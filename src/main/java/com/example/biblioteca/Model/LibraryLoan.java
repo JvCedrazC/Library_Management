@@ -4,7 +4,15 @@ import com.example.biblioteca.DAO.DAO;
 import com.example.biblioteca.DAO.bookDAO.BookDAO;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+/**
+ * Representa um empréstimo de livro de uma biblioteca.
+ *
+ * @author João Vítor Cedraz
+ * @version 1.0
+ * @since 2023-08-04
+ */
 
 public class LibraryLoan {
     private int libraryLoanId;
@@ -18,6 +26,12 @@ public class LibraryLoan {
     private BookDAO bookDAO = DAO.getBook();
 
 
+    /**
+     * Cria um novo empréstimo de livro.
+     *
+     * @param customerID O identificador do cliente que irá pegar o livro emprestado.
+     * @param ISBN O ISBN do livro que será emprestado.
+     */
     public LibraryLoan(int customerID, int ISBN){
         setCustomerID(customerID);
         setBookISBN(ISBN);
@@ -50,6 +64,9 @@ public class LibraryLoan {
     public void setStartDate(LocalDate date){ this.startDate = date; }
 
 
+    /**
+     * Extende o prazo do empréstimo em 7 dias, até um máximo de 3 extensões.
+     */
     public void extend_loan(){
         if (extendsNumbers <= 3){
             this.finishDate = this.finishDate.plusDays(7);
@@ -59,15 +76,26 @@ public class LibraryLoan {
         extendsNumbers += 1;
     }
 
+    /**
+     * Calcula a multa pelo atraso na devolução do empréstimo, com base no número de dias de atraso.
+     *
+     * @param devolutionDate A data da devolução do empréstimo.
+     * @return A multa pelo atraso, em reais.
+     */
     public Float getTax(LocalDate devolutionDate){
         if (isDelayed(devolutionDate)){
-            return 0.0f;
+            int days = (int) ChronoUnit.DAYS.between(this.finishDate, devolutionDate);
+            return days * 0.25f;
         } else {
             return 0.0f;
         }
     }
-
-
+    /**
+     * Verifica se o empréstimo está atrasado.
+     *
+     * @param devolutionDate A data da devolução do empréstimo.
+     * @return `true` se o empréstimo estiver atrasado, `false` caso contrário.
+     */
     public boolean isDelayed(LocalDate devolutionDate){
         if (devolutionDate.isAfter(getFinishDate())){
             return true;
