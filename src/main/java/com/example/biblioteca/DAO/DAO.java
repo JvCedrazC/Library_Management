@@ -1,5 +1,7 @@
 package com.example.biblioteca.DAO;
 
+import com.example.biblioteca.DAO.admDAO.AdmDAO;
+import com.example.biblioteca.DAO.admDAO.AdmDAOListImplements;
 import com.example.biblioteca.DAO.bookDAO.BookDAO;
 import com.example.biblioteca.DAO.bookDAO.BookDAOListImplements;
 import com.example.biblioteca.DAO.customerDAO.CustomerDAO;
@@ -14,6 +16,7 @@ public class DAO {
     public static BookDAO bookDAO;
     public static OperatorDAO operatorDAO;
     public static LibraryLoanDAO libraryLoanDAO;
+    public static AdmDAO admDAO;
     public static CustomerDAO getCustomer(){
         if (customerDAO == null){
             customerDAO = new CustomerDAOListImplements();
@@ -40,5 +43,12 @@ public class DAO {
             libraryLoanDAO = new LybraryLoanDAOListImplements();
         }
         return libraryLoanDAO;
+    }
+
+    public static AdmDAO getAdmDAO(){
+        if (admDAO == null){
+            admDAO = new AdmDAOListImplements();
+        }
+        return admDAO;
     }
 }
