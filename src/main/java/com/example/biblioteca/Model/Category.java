@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Category {
     private String name;
+    private int categoryId;
     private static ArrayList<Integer> ISBNlist;
 
     public Category(String name, int i){
