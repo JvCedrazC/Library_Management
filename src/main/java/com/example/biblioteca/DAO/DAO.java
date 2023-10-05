@@ -14,12 +14,12 @@ import com.example.biblioteca.DAO.operatorDAO.OperatorDAO;
 import com.example.biblioteca.DAO.operatorDAO.OperatorDAOListImplements;
 
 public class DAO {
-    public static CustomerDAO customerDAO;
-    public static BookDAO bookDAO;
-    public static OperatorDAO operatorDAO;
-    public static LibraryLoanDAO libraryLoanDAO;
-    public static AdmDAO admDAO;
-    public static CategoryDAO categoryDAO;
+    private static CustomerDAO customerDAO;
+    private static BookDAO bookDAO;
+    private static OperatorDAO operatorDAO;
+    private static LibraryLoanDAO libraryLoanDAO;
+    private static AdmDAO admDAO;
+    private static CategoryDAO categoryDAO;
     public static CustomerDAO getCustomer(){
         if (customerDAO == null){
             customerDAO = new CustomerDAOListImplements();
