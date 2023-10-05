@@ -15,7 +15,7 @@ public class TestOperatorDAO {
 
     @AfterEach
     void tearDown(){
-        DAO.operatorDAO.deleteMany();
+        DAO.getOperatorDAO().deleteMany();
     }
 
     @BeforeEach
