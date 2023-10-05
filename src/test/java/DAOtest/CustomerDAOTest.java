@@ -30,7 +30,7 @@ public class CustomerDAOTest {
     @Test
     void create(){
         Customer customer1 = new Customer(0, "LeBron James");
-        Customer novo1 = DAO.customerDAO.create(customer1);
+        Customer novo1 = DAO.getCustomer().create(customer1);
         assertEquals(novo1, customer1);
     }
 
