@@ -14,7 +14,7 @@ public class Booking {
     public void Booking(int customerID, int ISBN, String startDate, int nDays){
         setCustomerID(customerID);
         setISBN(ISBN);
-        startBooking(startDate, nDays);
+
     }
     public void setISBN(int ISBN){
         this.ISBN = ISBN;
@@ -45,13 +45,6 @@ public class Booking {
 
     public LocalDate getFinishdate() {
         return finishdate;
-    }
-
-    public void startBooking(String date, int nDays){
-        LocalDate startDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        LocalDate finishDate = startDate.plusDays(nDays);
-        setStartdate(startDate);
-        setFinishdate(finishDate);
     }
 
 }
