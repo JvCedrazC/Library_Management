@@ -5,6 +5,7 @@ import com.example.biblioteca.DAO.bookDAO.BookDAO;
 import com.example.biblioteca.DAO.customerDAO.CustomerDAO;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Operator extends Person{
@@ -16,8 +17,7 @@ public class Operator extends Person{
     }
 
     //methods
-    public void make_loan(int bookISBN, int customerID){
-
+    public LibraryLoan make_loan(int bookISBN, int customerID){
         LibraryLoan libraryLoan = new LibraryLoan(customerID, bookISBN);
         ArrayList<Book> newBook = DAO.getBook().findBYISBN(bookISBN);
         for (Book i: newBook){
@@ -29,15 +29,21 @@ public class Operator extends Person{
                 LocalDate fDate = sDate.plusDays(7);
                 libraryLoan.setFinishDate(fDate);
                 libraryLoan.setStartDate(sDate);
-                break;
+                LibraryLoan libraryLoan2 = DAO.getLibraryLoanDAO().create(libraryLoan);
+                return libraryLoan2;
             }
         }
-        DAO.getLibraryLoanDAO().create(libraryLoan);
-    }
-
-    public void makeBooking(){
+        return null;
 
     }
+
+    public void startBooking(String date, int nDays, Booking booking){
+        LocalDate startDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalDate finishDate = startDate.plusDays(nDays);
+        booking.setStartdate(startDate);
+        booking.setFinishdate(finishDate);
+    }
+
     public void newBook(int isbn, String BookName, String publisher, String author, int category_id){
         Book book = new Book(isbn, category_id, BookName, author, publisher);
         bookDAO.create(book);
