@@ -42,7 +42,7 @@ public class OperatorTest {
 
     @Test
     public void booking(){
-        Booking newbooking = new Booking();
+        Booking newbooking = new Booking(0, 978);
         Operator operator = DAO.getOperatorDAO().findById(0);
         operator.startBooking("2023-10-02", 3, newbooking);
         LocalDate date = LocalDate.parse("2023-10-05", DateTimeFormatter.ofPattern("yyyy-MM-dd"));
