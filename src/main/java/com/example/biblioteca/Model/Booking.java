@@ -10,8 +10,7 @@ public class Booking {
     private LocalDate startdate;
     private LocalDate finishdate;
 
-
-    public void Booking(int customerID, int ISBN, String startDate, int nDays){
+    public  Booking(int customerID, int ISBN){
         setCustomerID(customerID);
         setISBN(ISBN);
     }
