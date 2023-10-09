@@ -4,6 +4,8 @@ import com.example.biblioteca.DAO.admDAO.AdmDAO;
 import com.example.biblioteca.DAO.admDAO.AdmDAOListImplements;
 import com.example.biblioteca.DAO.bookDAO.BookDAO;
 import com.example.biblioteca.DAO.bookDAO.BookDAOListImplements;
+import com.example.biblioteca.DAO.bookingDAO.BookingDAO;
+import com.example.biblioteca.DAO.bookingDAO.BookingDAOListImplements;
 import com.example.biblioteca.DAO.categoryDAO.CategoryDAO;
 import com.example.biblioteca.DAO.categoryDAO.CategoryDAOListImplements;
 import com.example.biblioteca.DAO.customerDAO.CustomerDAO;
@@ -24,6 +26,7 @@ public class DAO {
     private static LibraryLoanDAO libraryLoanDAO;
     private static AdmDAO admDAO;
     private static CategoryDAO categoryDAO;
+    private static BookingDAO bookingDAO;
 
     /**
      * Obtém uma instância de CustomerDAO, que permite o acesso aos dados dos clientes do sistema.
@@ -96,6 +99,13 @@ public class DAO {
             categoryDAO = new CategoryDAOListImplements();
         }
         return categoryDAO;
+    }
+
+    public static BookingDAO getBookingDAO(){
+        if (bookingDAO == null){
+            bookingDAO = new BookingDAOListImplements();
+        }
+        return bookingDAO;
     }
 
 }
