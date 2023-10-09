@@ -14,8 +14,16 @@ public class Booking {
     public void Booking(int customerID, int ISBN, String startDate, int nDays){
         setCustomerID(customerID);
         setISBN(ISBN);
-
     }
+
+    public void setBookingID(int bookingID) {
+        this.bookingID = bookingID;
+    }
+
+    public int getBookingID() {
+        return bookingID;
+    }
+
     public void setISBN(int ISBN){
         this.ISBN = ISBN;
     }
