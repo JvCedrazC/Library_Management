@@ -24,6 +24,11 @@ public class BookingDAOListImplements implements BookingDAO{
 
     @Override
     public Booking findById(int id) {
+        for (Booking booking: this.bookinglist){
+            if (booking.getBookingID() == id){
+                return booking;
+            }
+        }
         return null;
     }
 
