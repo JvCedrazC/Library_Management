@@ -52,11 +52,17 @@ public class BookingDAOListImplements implements BookingDAO{
 
     @Override
     public void deleteById(int id) {
-
+        for (int i = 0; i < this.bookinglist.size();i++){
+            if (this.bookinglist.get(i).getBookingID() == id){
+                this.bookinglist.remove(i);
+                break;
+            }
+        }
     }
 
     @Override
     public void deleteMany() {
-
+        this.bookinglist = new ArrayList<>();
+        this.nextId = 0;
     }
 }
