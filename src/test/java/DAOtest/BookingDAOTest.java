@@ -2,11 +2,16 @@ package DAOtest;
 
 import com.example.biblioteca.DAO.DAO;
 import com.example.biblioteca.Model.Booking;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BookingDAOTest {
+    @AfterEach
+    void tearDown(){
+        DAO.getBookingDAO().deleteMany();
+    }
 
     @Test
     public void create(){
