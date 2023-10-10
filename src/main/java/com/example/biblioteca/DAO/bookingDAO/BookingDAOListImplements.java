@@ -34,12 +34,20 @@ public class BookingDAOListImplements implements BookingDAO{
 
     @Override
     public List<Booking> findMany() {
-        return null;
+        ArrayList<Booking> listBooking = new ArrayList<>();
+        for (Object o: this.bookinglist){
+            listBooking.add((Booking) o);
+        }
+        return listBooking;
     }
 
     @Override
     public void update(Booking obj) {
-
+        for (int i = 0; i < this.bookinglist.size(); i++){
+            if (this.bookinglist.get(i).getBookingID() == obj.getBookingID()){
+                this.bookinglist.set(i, obj);
+            }
+        }
     }
 
     @Override
