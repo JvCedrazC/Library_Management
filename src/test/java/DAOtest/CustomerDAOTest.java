@@ -14,11 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CustomerDAOTest {
     CustomerDAO customerDAO = DAO.getCustomer();
     @AfterEach
-    void teardown(){
+    public void teardown(){
         DAO.getCustomer().deleteMany();
     }
     @BeforeEach
-    void generate(){
+    public void generate(){
         Customer customer1 = new Customer(-1, "LeBron James");
         customerDAO.create(customer1);
         Customer customer2 = new Customer(-1, "Lionel Messi");
@@ -28,40 +28,40 @@ public class CustomerDAOTest {
     }
 
     @Test
-    void create(){
+    public void create(){
         Customer customer1 = new Customer(0, "LeBron James");
         Customer novo1 = DAO.getCustomer().create(customer1);
         assertEquals(novo1, customer1);
     }
 
     @Test
-    void findByID(){
+    public void findByID(){
         Customer customer = customerDAO.findById(1);
         assertEquals("Lionel Messi", customer.getNome());
     }
 
     @Test
-    void findMany(){
+    public void findMany(){
         ArrayList<Customer> customersList = new ArrayList<>();
         customersList = (ArrayList<Customer>) DAO.getCustomer().findMany();
         assertEquals(3, customersList.size());
     }
 
     @Test
-    void update(){
+    public void update(){
         Customer newCustomer = customerDAO.findById(2);
         newCustomer.setNome("Robert Lewandowski");
         customerDAO.update(newCustomer);
         assertEquals("Robert Lewandowski", customerDAO.findById(2).getNome());
     }
     @Test
-    void deleteById(){
+    public void deleteById(){
         customerDAO.deleteById(2);
         assertEquals(2, customerDAO.findMany().size());
     }
 
     @Test
-    void deleteMany(){
+    public void deleteMany(){
         customerDAO.deleteMany();
         assertEquals(0, customerDAO.findMany().size());
     }
