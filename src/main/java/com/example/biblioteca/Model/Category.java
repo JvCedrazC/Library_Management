@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Category {
     private String name;
     private int categoryId;
-    private static ArrayList<Integer> ISBNlist;
+    private ArrayList<Integer> ISBNlist = new ArrayList<>();
 
     public Category(String name, int i){
         setName(name);
@@ -28,5 +28,12 @@ public class Category {
     }
     public void addBook(int ISBN){
         ISBNlist.add(ISBN);
+    }
+    public ArrayList<Integer> getISBNlist(){
+        ArrayList<Integer> listISBN = new ArrayList<>();
+        for (Integer i: this.ISBNlist){
+            listISBN.add(i);
+        }
+        return listISBN;
     }
 }
