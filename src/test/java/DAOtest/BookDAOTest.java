@@ -13,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BookDAOTest {
     @AfterEach
-    void tearDown(){
+    public void tearDown(){
         DAO.getBook().deleteMany();
     }
     @BeforeEach
-    void generate(){
+    public void generate(){
         Book book1 = new Book(978, 0, "1808", "Laurentino Gomes", "Planeta Jovem");
         DAO.getBook().create(book1);
         Book book2 = new Book(978, 0, "1808", "Laurentino Gomes", "Planeta Jovem");
