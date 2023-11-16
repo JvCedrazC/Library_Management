@@ -34,9 +34,20 @@ public class OperatorTest {
     void teardown(){
         DAO.getBook().deleteMany();
         DAO.getOperatorDAO().deleteMany();
+        DAO.getLibraryLoanDAO().deleteMany();
     }
     @Test
     void makeLoan(){
+        Operator operator = new Operator(0, "Ronaldo Nazário");
+        operator.make_loan(978, 0);
+        assertEquals(1, DAO.getLibraryLoanDAO().findMany().size());
+    }
+
+    @Test
+    void newCustomer(){
+        Operator operator = DAO.getOperatorDAO().findById(0);
+        operator.newCustomer("Erling Haaland");
+        assertEquals("Erling Haaland", DAO.getCustomer().findById(0).getNome());
 
     }
 
@@ -48,5 +59,12 @@ public class OperatorTest {
         LocalDate date = LocalDate.parse("2023-10-05", DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         assertEquals(newbooking.getFinishdate(), date);
 
+    }
+
+    @Test
+    public void newBook(){
+        Operator op = new Operator(-1, "Robert DeNiro");
+        op.newBook(978, "1808", "Planeta Jovem", "Laurentino Gomes", 0 );
+        assertEquals("1808", DAO.getBook().findById(3).getName());
     }
 }
