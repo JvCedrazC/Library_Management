@@ -18,7 +18,7 @@ public class CategoryDAOListImplements implements CategoryDAO{
     public Category create(Category obj) {
         obj.setCategoryId(nextId);
         this.CategoryList.add(obj);
-        nextId++;
+        this.nextId++;
         return obj;
     }
 
