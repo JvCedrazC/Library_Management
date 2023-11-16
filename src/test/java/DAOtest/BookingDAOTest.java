@@ -12,16 +12,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BookingDAOTest {
     @AfterEach
-    void tearDown(){
+    public void tearDown(){
         DAO.getBookingDAO().deleteMany();
         DAO.getBook().deleteMany();
     }
 
     @BeforeEach
-    void generate(){
+    public void generate(){
 
         //Books
         Book book1 = new Book(978, 0, "1808", "Laurentino Gomes", "Planeta Jovem");
@@ -71,7 +72,16 @@ public class BookingDAOTest {
         assertEquals(localDate, DAO.getBookingDAO().findById(0).getStartdate());
     }
 
+    @Test
+    void deleteById(){
+        DAO.getBookingDAO().deleteById(2);
+        assertThrows(IndexOutOfBoundsException.class, () ->DAO.getBookingDAO().findMany().get(2));
+    }
 
-
+    @Test
+    void deleteMany(){
+        DAO.getBookingDAO().deleteMany();
+        assertEquals(0, DAO.getBookingDAO().findMany().size());
+    }
 
 }
