@@ -14,12 +14,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TestOperatorDAO {
 
     @AfterEach
-    void tearDown(){
+    public void tearDown(){
         DAO.getOperatorDAO().deleteMany();
     }
 
     @BeforeEach
-    void generate(){
+    public void generate(){
         Operator operator1 = new Operator(-1, "Silvano Sales");
         DAO.getOperatorDAO().create(operator1);
         Operator operator2 = new Operator(-1, "Michael Jackson");
