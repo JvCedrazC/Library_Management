@@ -52,8 +52,8 @@ public class Operator extends Person{
     public Customer newCustomer(String name){
         CustomerDAO customerDAO = DAO.getCustomer();
         Customer customer = new Customer(-1, name);
-        Customer newCustomer = customerDAO.create(customer);
-        return newCustomer;
+        Customer customer1 = customerDAO.create(customer);
+        return customer1;
     }
 
 }
