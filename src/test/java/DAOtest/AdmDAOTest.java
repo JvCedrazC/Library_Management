@@ -14,12 +14,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AdmDAOTest {
     @AfterEach
-    void tearDown(){
+    public void tearDown(){
         DAO.getAdmDAO().deleteMany();
     }
 
     @BeforeEach
-    void generate(){
+    public void generate(){
         Adm adm1 = new Adm(-1, "Michael Phelps");
         Adm novo1 = DAO.getAdmDAO().create(adm1);
         Adm adm2 = new Adm(-1, "Usain Bolt");
