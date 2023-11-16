@@ -15,12 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LibraryLoanDAOTest {
     @AfterEach
-    void tearDown(){
+    public void tearDown(){
         DAO.getLibraryLoanDAO().deleteMany();
         DAO.getBook().deleteMany();
     }
     @BeforeEach
-    void generateLibraryLoan(){
+    public void generateLibraryLoan(){
         LibraryLoan libraryLoan1 = new LibraryLoan(0, 978);
         DAO.getLibraryLoanDAO().create(libraryLoan1);
         LibraryLoan libraryLoan2 = new LibraryLoan(1, 978);
