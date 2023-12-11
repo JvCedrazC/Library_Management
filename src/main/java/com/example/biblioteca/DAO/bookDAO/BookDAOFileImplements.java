@@ -37,6 +37,7 @@ public class BookDAOFileImplements implements BookDAO{
         book.setId(nextID);
         nextID++;
         this.bookList.add(book);
+        this.managingFiles.save(this.bookList);
         return book;
     }
 
@@ -101,6 +102,7 @@ public class BookDAOFileImplements implements BookDAO{
                 this.bookList.set(i, obj);
             }
         }
+        this.managingFiles.save(this.bookList);
 
     }
 
@@ -117,6 +119,7 @@ public class BookDAOFileImplements implements BookDAO{
                 break;
             }
         }
+        this.managingFiles.save(this.bookList);
 
     }
 
@@ -128,6 +131,7 @@ public class BookDAOFileImplements implements BookDAO{
     public void deleteMany() {
         this.bookList = new ArrayList<>();
         this.nextID = 0;
+        this.managingFiles.save(this.bookList);
 
     }
 }
