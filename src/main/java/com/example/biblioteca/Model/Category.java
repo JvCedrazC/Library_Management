@@ -1,7 +1,8 @@
 package com.example.biblioteca.Model;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Category {
+public class Category implements Serializable {
     private String name;
     private int categoryId;
     private ArrayList<Integer> ISBNlist = new ArrayList<>();
