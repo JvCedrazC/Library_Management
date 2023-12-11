@@ -1,5 +1,6 @@
 package com.example.biblioteca.DAO.bookDAO;
 
+import com.example.biblioteca.FileUtils.ManagingFiles;
 import com.example.biblioteca.Model.Book;
 
 import java.util.ArrayList;
@@ -9,12 +10,20 @@ public class BookDAOFileImplements implements BookDAO{
     private int nextID;
     private ArrayList<Book> bookList;
 
+    private ManagingFiles managingFiles;
+
     /**
      * Construtor padrão que inicializa a lista de livros e o próximo ID disponível.
      */
     public BookDAOFileImplements(){
-        this.bookList = new ArrayList<>();
-        nextID = 0;
+        this.managingFiles = new ManagingFiles("Book.bin");
+        this.bookList = managingFiles.retrieve();
+        if (this.bookList.size() != 0){
+            this.nextID = this.bookList.size();
+        }
+        else {
+            nextID = 0;
+        }
     }
 
     /**
