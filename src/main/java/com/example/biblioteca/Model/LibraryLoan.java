@@ -3,6 +3,7 @@ package com.example.biblioteca.Model;
 import com.example.biblioteca.DAO.DAO;
 import com.example.biblioteca.DAO.bookDAO.BookDAO;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  * @since 2023-08-04
  */
 
-public class LibraryLoan {
+public class LibraryLoan implements Serializable {
     private int libraryLoanId;
     private int customerID;
     private int bookID;
