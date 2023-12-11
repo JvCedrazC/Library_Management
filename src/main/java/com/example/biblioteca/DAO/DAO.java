@@ -1,6 +1,7 @@
 package com.example.biblioteca.DAO;
 
 import com.example.biblioteca.DAO.admDAO.AdmDAO;
+import com.example.biblioteca.DAO.admDAO.AdmDAOFileImplements;
 import com.example.biblioteca.DAO.admDAO.AdmDAOListImplements;
 import com.example.biblioteca.DAO.bookDAO.BookDAO;
 import com.example.biblioteca.DAO.bookDAO.BookDAOListImplements;
@@ -84,7 +85,7 @@ public class DAO {
      */
     public static AdmDAO getAdmDAO(){
         if (admDAO == null){
-            admDAO = new AdmDAOListImplements();
+            admDAO = new AdmDAOFileImplements();
         }
         return admDAO;
     }
