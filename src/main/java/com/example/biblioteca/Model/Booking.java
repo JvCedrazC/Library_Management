@@ -1,9 +1,10 @@
 package com.example.biblioteca.Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Booking {
+public class Booking implements Serializable {
     private int bookingID;
     private int customerID;
     private int ISBN;
