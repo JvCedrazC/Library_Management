@@ -1,8 +1,9 @@
 package com.example.biblioteca.Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Book {
+public class Book implements Serializable {
     private int id = -1;
     private int category_id;
     private int ISBN;
