@@ -1,5 +1,6 @@
 package com.example.biblioteca.DAO.libraryLoanDAO;
 
+import com.example.biblioteca.FileUtils.ManagingFiles;
 import com.example.biblioteca.Model.LibraryLoan;
 
 import java.util.ArrayList;
@@ -9,15 +10,23 @@ public class LibraryLoanDAOFileImplements implements LibraryLoanDAO {
     private ArrayList<LibraryLoan> libraryLoanList;
     private int nextId;
 
+    private ManagingFiles managingFiles;
+
     public LibraryLoanDAOFileImplements(){
-        this.libraryLoanList = new ArrayList<>();
-        this.nextId++;
+        this.managingFiles = new ManagingFiles("LibraryLoan.bin");
+        this.libraryLoanList = managingFiles.retrieve();
+        if (libraryLoanList.size() != 0){
+            nextId = libraryLoanList.size();
+        }
+        else{
+            nextId = 0;
+        }
     }
     @Override
     public LibraryLoan create(LibraryLoan obj) {
         obj.setLibraryLoanId(nextId);
         this.libraryLoanList.add(obj);
-        nextId++;
+        this.managingFiles.save(libraryLoanList);
         return obj;
     }
 
@@ -28,6 +37,7 @@ public class LibraryLoanDAOFileImplements implements LibraryLoanDAO {
                 this.libraryLoanList.set(i, libraryloan);
             }
         }
+        this.managingFiles.save(libraryLoanList);
     }
 
     @Override
@@ -57,11 +67,13 @@ public class LibraryLoanDAOFileImplements implements LibraryLoanDAO {
                 break;
             }
         }
+        this.managingFiles.save(libraryLoanList);
     }
 
     @Override
     public void deleteMany() {
         this.libraryLoanList = new ArrayList<>();
         this.nextId = 0;
+        this.managingFiles.save(libraryLoanList);
     }
 }
