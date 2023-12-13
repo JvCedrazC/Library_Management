@@ -24,7 +24,7 @@ public class LibraryLoan implements Serializable {
     private  LocalDate finishDate;
     private int extendsNumbers = 0;
     private Float tax = 0.0F;
-    private BookDAO bookDAO = DAO.getBook();
+    //private BookDAO bookDAO = DAO.getBook();
 
 
     /**
