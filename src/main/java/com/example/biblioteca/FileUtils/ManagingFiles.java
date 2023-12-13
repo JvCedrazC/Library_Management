@@ -4,6 +4,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class ManagingFiles implements Serializable {
+
+    /**
+     * Nome do arquivo utilizado para operações de leitura e escrita.
+     */
     private String fileName;
 
     public ManagingFiles(String fileName){
