@@ -59,8 +59,17 @@ public class LibraryLoanDAOTest {
 
     @Test
     public void deleteById(){
+        DAO.getLibraryLoanDAO().deleteMany();
+        LibraryLoan libraryLoan1 = new LibraryLoan(0, 978);
+        DAO.getLibraryLoanDAO().create(libraryLoan1);
+        LibraryLoan libraryLoan2 = new LibraryLoan(1, 978);
+        DAO.getLibraryLoanDAO().create(libraryLoan2);
+        LibraryLoan libraryLoan3 = new LibraryLoan(2, 7117);
+        DAO.getLibraryLoanDAO().create(libraryLoan3);
+
         DAO.getLibraryLoanDAO().deleteById(2);
-        assertThrows(IndexOutOfBoundsException.class, () ->DAO.getLibraryLoanDAO().findMany().get(2));
+        System.out.println(DAO.getLibraryLoanDAO().findMany().size());
+        assertEquals(DAO.getLibraryLoanDAO().findMany().size(), 2);
     }
 
     @Test
