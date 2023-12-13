@@ -9,13 +9,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Operator extends Person{
-    BookDAO bookDAO = DAO.getBook();
+   // private transient BookDAO bookDAO;
 
     //constructor
     public Operator(int id, String name){
         super(id, name);
     }
-
     //methods
     public LibraryLoan make_loan(int bookISBN, int customerID){
         LibraryLoan libraryLoan = new LibraryLoan(customerID, bookISBN);
@@ -46,7 +45,7 @@ public class Operator extends Person{
 
     public void newBook(int isbn, String BookName, String publisher, String author, int category_id){
         Book book = new Book(isbn, category_id, BookName, author, publisher);
-        bookDAO.create(book);
+        DAO.getBook().create(book);
     }
 
     public Customer newCustomer(String name){
