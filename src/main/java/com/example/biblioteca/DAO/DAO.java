@@ -4,12 +4,15 @@ import com.example.biblioteca.DAO.admDAO.AdmDAO;
 import com.example.biblioteca.DAO.admDAO.AdmDAOFileImplements;
 import com.example.biblioteca.DAO.admDAO.AdmDAOListImplements;
 import com.example.biblioteca.DAO.bookDAO.BookDAO;
+import com.example.biblioteca.DAO.bookDAO.BookDAOFileImplements;
 import com.example.biblioteca.DAO.bookDAO.BookDAOListImplements;
 import com.example.biblioteca.DAO.bookingDAO.BookingDAO;
+import com.example.biblioteca.DAO.bookingDAO.BookingDAOFileImplements;
 import com.example.biblioteca.DAO.bookingDAO.BookingDAOListImplements;
 import com.example.biblioteca.DAO.categoryDAO.CategoryDAO;
 import com.example.biblioteca.DAO.categoryDAO.CategoryDAOListImplements;
 import com.example.biblioteca.DAO.customerDAO.CustomerDAO;
+import com.example.biblioteca.DAO.customerDAO.CustomerDAOFileImplements;
 import com.example.biblioteca.DAO.customerDAO.CustomerDAOListImplements;
 import com.example.biblioteca.DAO.libraryLoanDAO.LibraryLoanDAO;
 import com.example.biblioteca.DAO.libraryLoanDAO.LybraryLoanDAOListImplements;
@@ -36,7 +39,7 @@ public class DAO {
      */
     public static CustomerDAO getCustomer(){
         if (customerDAO == null){
-            customerDAO = new CustomerDAOListImplements();
+            customerDAO = new CustomerDAOFileImplements();
         }
         return customerDAO;
     }
@@ -48,7 +51,7 @@ public class DAO {
      */
     public static BookDAO getBook(){
         if (bookDAO == null){
-            bookDAO = new BookDAOListImplements();
+            bookDAO = new BookDAOFileImplements();
         }
         return bookDAO;
     }
@@ -104,7 +107,7 @@ public class DAO {
 
     public static BookingDAO getBookingDAO(){
         if (bookingDAO == null){
-            bookingDAO = new BookingDAOListImplements();
+            bookingDAO = new BookingDAOFileImplements();
         }
         return bookingDAO;
     }
